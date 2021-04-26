@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Finnhub.Client;
 
@@ -18,9 +19,19 @@ namespace Finnhub.Console
             foreach (var exchange in exchanges)
             {
                 System.Console.WriteLine($"=> {exchange}");
+                var exchangeSymbols = await client.CryptoSymbol(exchange);
+                foreach (var exchangeSymbol in exchangeSymbols)
+                {
+                    System.Console.WriteLine(
+                        $"==> {exchangeSymbol.Symbol}, {exchangeSymbol.DisplaySymbol}, {exchangeSymbol.Description}");
+                    // var result = await client.CryptoCandle(exchangeSymbol.Symbol, "D", 1572651390, 1575243390);
+                    // if (result is {Close: { }})
+                    // {
+                    //     System.Console.WriteLine($"===> {result.Close.Average()}");
+                    // }
+                }
             }
 
-            // var result = await client.CryptoCandle("KRAKEN:TBTCEUR", "D", 1572651390, 1575243390);
             // System.Console.WriteLine(FinnhubClient.ToJson(result));
         }
     }

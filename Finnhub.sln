@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finnhub.Client", "Finnhub.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finnhub.Console", "Finnhub.Console\Finnhub.Console.csproj", "{5A62CE94-D7A9-4771-ADEE-67D133B8460C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finnhub.Client.Tests", "Finnhub.Client.Tests\Finnhub.Client.Tests.csproj", "{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{5A62CE94-D7A9-4771-ADEE-67D133B8460C}.Release|x64.Build.0 = Release|Any CPU
 		{5A62CE94-D7A9-4771-ADEE-67D133B8460C}.Release|x86.ActiveCfg = Release|Any CPU
 		{5A62CE94-D7A9-4771-ADEE-67D133B8460C}.Release|x86.Build.0 = Release|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Debug|x64.Build.0 = Debug|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Debug|x86.Build.0 = Debug|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Release|x64.ActiveCfg = Release|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Release|x64.Build.0 = Release|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Release|x86.ActiveCfg = Release|Any CPU
+		{851C8E1A-2367-4A5B-B55C-FE1EB43376C2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -14,34 +14,47 @@ namespace Finnhub.Client
     {
         private readonly string _token;
         private const string BaseUrl = "https://finnhub.io/api/v1";
-        private readonly string _cryptoExchangesUrl = $"{BaseUrl}/crypto/exchange";
-        private readonly string _cryptoCandlesUrl = $"{BaseUrl}/crypto/candle";
 
         public FinnhubClient(string token)
         {
             _token = token;
         }
 
-        public async Task<CryptoCandles> CryptoCandle(string symbol, string resolution, long from, long to)
+        public async Task<List<string>> CryptoExchanges()
         {
+            var url = $"{BaseUrl}/crypto/exchange";
             var queryParameters = new Dictionary<string, object>
             {
+                {"token", _token}
+            };
+            return await CallUrl<List<string>>(url, queryParameters);
+        }
+
+
+        public async Task<List<CryptoSymbol>> CryptoSymbol(string exchange)
+        {
+            var url = $"{BaseUrl}/crypto/symbol";
+            var queryParameters = new Dictionary<string, object>
+            {
+                {"token", _token},
+                {"exchange", exchange},
+            };
+            return await CallUrl<List<CryptoSymbol>>(url, queryParameters);
+        }
+
+
+        public async Task<CryptoCandles> CryptoCandle(string symbol, string resolution, long from, long to)
+        {
+            var url = $"{BaseUrl}/crypto/candle";
+            var queryParameters = new Dictionary<string, object>
+            {
+                {"token", _token},
                 {"symbol", symbol},
                 {"resolution", resolution},
                 {"from", from},
-                {"to", to},
-                {"token", _token}
+                {"to", to}
             };
-            return await CallUrl<CryptoCandles>(_cryptoCandlesUrl, queryParameters);
-        }
-
-        public async Task<List<string>> CryptoExchanges()
-        {
-            var queryParameters = new Dictionary<string, object>
-            {
-                {"token", _token}
-            };
-            return await CallUrl<List<string>>(_cryptoExchangesUrl, queryParameters);
+            return await CallUrl<CryptoCandles>(url, queryParameters);
         }
 
         public static string ToJson<T>(T result)
