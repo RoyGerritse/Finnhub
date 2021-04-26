@@ -4,9 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Title>Finnhub</Title>
+    <Title>Finnhub Client</Title>
     <Authors>Roy Gerritse</Authors>
-    <PackageId>Finnhub</PackageId>
+    <PackageId>Finnhub.Client</PackageId>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
     <RepositoryUrl>https://github.com/RoyGerritse/Finnhub</RepositoryUrl>

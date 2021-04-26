@@ -1,9 +1,10 @@
-# Finnhub
+# Finnhub.Client
 ## Installation
 You can either download the source and compile or use NuGet at http://nuget.org. To install with nuget:
 ```
-Install-Package Finnhub
+dotnet add package Finnhub.Client --version 1.0.0
 ```
+
 ## Usage
 ### Crypto Exchanges
 ```
