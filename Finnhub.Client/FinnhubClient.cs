@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -76,7 +75,7 @@ namespace Finnhub.Client
             try
             {
                 var response = await client.GetAsync($"?{queryRequest}");
-                return await response.Content.ReadFromJsonAsync<T>();
+                return await response.Content.ReadFromJsonAsync<T>() ?? throw new InvalidOperationException();
             }
             catch (HttpRequestException e)
             {

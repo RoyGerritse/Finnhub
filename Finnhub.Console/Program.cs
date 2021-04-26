@@ -7,7 +7,7 @@ namespace Finnhub.Console
 {
     public class Program
     {
-        private static EnvironmentSettings EnvironmentSettings { get; set; }
+        private static EnvironmentSettings EnvironmentSettings { get; set; } = null!;
 
         public static async Task Main()
         {
@@ -24,15 +24,8 @@ namespace Finnhub.Console
                 {
                     System.Console.WriteLine(
                         $"==> {exchangeSymbol.Symbol}, {exchangeSymbol.DisplaySymbol}, {exchangeSymbol.Description}");
-                    // var result = await client.CryptoCandle(exchangeSymbol.Symbol, "D", 1572651390, 1575243390);
-                    // if (result is {Close: { }})
-                    // {
-                    //     System.Console.WriteLine($"===> {result.Close.Average()}");
-                    // }
                 }
             }
-
-            // System.Console.WriteLine(FinnhubClient.ToJson(result));
         }
     }
 
@@ -46,6 +39,10 @@ namespace Finnhub.Console
             if (token != null)
             {
                 Token = token;
+            }
+            else
+            {
+                throw new InvalidOperationException("environment token is null");
             }
         }
 

@@ -6,24 +6,24 @@ namespace Finnhub.Client
     public class CryptoCandles
     {
         [JsonPropertyName("c")]
-        public List<double> Close { get; set; }
+        public List<double>? Close { get; set; }
 
         [JsonPropertyName("h")] 
-        public List<double> High { get; set; }
+        public List<double>? High { get; set; }
 
         [JsonPropertyName("l")] 
-        public List<double> Low { get; set; }
+        public List<double>? Low { get; set; }
 
         [JsonPropertyName("o")] 
-        public List<double> Open { get; set; }
+        public List<double>? Open { get; set; }
 
         [JsonPropertyName("s")] 
-        public string Status { get; set; }
+        public string Status { get; set; } = null!;
 
         [JsonPropertyName("t")] 
-        public List<long> Time { get; set; }
+        public List<long>? Time { get; set; }
 
         [JsonPropertyName("v")] 
-        public List<double> Volume { get; set; }
+        public List<double>? Volume { get; set; }
     }
 }

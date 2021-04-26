@@ -6,12 +6,12 @@ namespace Finnhub.Client
     public class CryptoSymbol
     {
         [JsonPropertyName("description")]        
-        public string Description { get; set; }
-        
+        public string Description { get; set; } = null!;
+
         [JsonPropertyName("displaySymbol")]
-        public string DisplaySymbol { get; set; }
+        public string DisplaySymbol { get; set; } = null!;
         
         [JsonPropertyName("symbol")]
-        public string Symbol { get; set; }
+        public string Symbol { get; set; } = null!;
     }
 }
