@@ -45,7 +45,7 @@ namespace Finnhub.Console
             System.Console.WriteLine("============");
             foreach (var exchange in stockSymbols)
             {
-                System.Console.WriteLine($"=> {exchange.Currency}, {exchange.Symbol}, {exchange.Description}");
+                System.Console.WriteLine($"=>  {exchange.Figi}, {exchange.Currency}, {exchange.Symbol}, {exchange.Description}");
             }
         }
     }
