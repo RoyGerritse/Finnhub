@@ -2,7 +2,7 @@
 ## Installation
 You can either download the source and compile or use NuGet at http://nuget.org. To install with nuget:
 ```
-dotnet add package Finnhub.Client --version 1.0.0
+dotnet add package Finnhub.Client
 ```
 
 ## Usage
