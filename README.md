@@ -5,8 +5,6 @@ You can either download the source and compile or use NuGet at http://nuget.org.
 dotnet add package Finnhub.Client --version 1.0.0
 ```
 
-[![.NET](https://github.com/RoyGerritse/Finnhub/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/RoyGerritse/Finnhub/actions/workflows/dotnet.yml)
-
 ## Usage
 ### Crypto Exchanges
 ```
