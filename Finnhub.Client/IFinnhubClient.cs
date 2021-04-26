@@ -6,7 +6,7 @@ namespace Finnhub.Client
     public interface IFinnhubClient
     {
         Task<List<string>> CryptoExchanges();
-        Task<List<CryptoSymbol>> CryptoSymbol(string exchange);
+        Task<List<ExchangeSymbol>> CryptoSymbol(string exchange);
         Task<CryptoCandles> CryptoCandle(string symbol, string resolution, long from, long to);
     }
 }

@@ -25,6 +25,20 @@ namespace Finnhub.Console
                         $"==> {exchangeSymbol.Symbol}, {exchangeSymbol.DisplaySymbol}, {exchangeSymbol.Description}");
                 }
             }
+            
+            
+            var forexExchanges = await client.ForexExchanges();
+            System.Console.WriteLine("FOREX EXCHANGES:");
+            System.Console.WriteLine("============");
+            foreach (var exchange in forexExchanges)
+            {
+                System.Console.WriteLine($"=> {exchange}");
+                var exchangeSymbols = await client.ForexSymbol(exchange);
+                foreach (var exchangeSymbol in exchangeSymbols)
+                {
+                    System.Console.WriteLine($"==> {exchangeSymbol.Symbol}, {exchangeSymbol.DisplaySymbol}, {exchangeSymbol.Description}");
+                }
+            }
         }
     }
 

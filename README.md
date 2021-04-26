@@ -23,3 +23,15 @@ var result = await client.CryptoSymbol("KRAKEN");
 var client = new FinnhubClient("token");                   
 var result = await client.CryptoCandle("symbol", "D", 1572651390, 1575243390);
 ```
+
+### Forex Exchanges
+```
+var client = new FinnhubClient("token");                   
+var result = await client.ForexExchanges();
+```
+
+### Crypto Symbol
+```
+var client = new FinnhubClient("token");
+var result = await client.ForexSymbol("forex.com");
+```
