@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Finnhub.Client;
 
@@ -12,11 +11,17 @@ namespace Finnhub.Console
         public static async Task Main()
         {
             EnvironmentSettings = new EnvironmentSettings();
-
             var client = new FinnhubClient(EnvironmentSettings.Token);
-            var result = await client.CryptoCandle("KRAKEN:TBTCEUR", "D", 1572651390, 1575243390);
-            System.Console.WriteLine(JsonSerializer.Serialize(result,
-                new JsonSerializerOptions {WriteIndented = true}));
+            var exchanges = await client.CryptoExchanges();
+            System.Console.WriteLine("CRYPTO EXCHANGES:");
+            System.Console.WriteLine("============");
+            foreach (var exchange in exchanges)
+            {
+                System.Console.WriteLine($"=> {exchange}");
+            }
+
+            // var result = await client.CryptoCandle("KRAKEN:TBTCEUR", "D", 1572651390, 1575243390);
+            // System.Console.WriteLine(FinnhubClient.ToJson(result));
         }
     }
 
