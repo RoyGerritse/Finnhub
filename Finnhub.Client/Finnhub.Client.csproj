@@ -7,8 +7,8 @@
     <Title>Finnhub Client</Title>
     <Authors>Roy Gerritse</Authors>
     <PackageId>Finnhub.Client</PackageId>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
     <RepositoryUrl>https://github.com/RoyGerritse/Finnhub</RepositoryUrl>
   </PropertyGroup>
 
