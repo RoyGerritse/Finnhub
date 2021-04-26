@@ -27,11 +27,8 @@ jobs:
       run: dotnet pack --configuration Release Finnhub.Client
     - name: Publish the package to GPR
       run: dotnet nuget push Finnhub.Client/bin/Release/*.nupkg
-    # Authticates packages to push to Azure Artifacts
-    - uses: actions/setup-dotnet@v1
-      with:
-        source-url: https://api.nuget.org/v3/index.json
+    - uses: actions/setup-dotnet@v
       env:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_TOKEN}} # Note, create a secret with this name in Settings
     - name: Publish the package to NuGet
-      run: dotnet nuget push Finnhub.Client/bin/Release/*.nupkg
+      run: dotnet nuget push Finnhub.Client/bin/Release/*.nupkg -s nuget.org
