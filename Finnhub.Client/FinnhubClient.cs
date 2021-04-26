@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Finnhub.Client
 {
-    public class FinnhubClient
+    public class FinnhubClient : IFinnhubClient
     {
         private readonly string _token;
         private const string BaseUrl = "https://finnhub.io/api/v1";
