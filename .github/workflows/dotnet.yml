@@ -25,8 +25,6 @@ jobs:
       run: dotnet test --no-build --verbosity normal --configuration Release 
     - name: Create the package
       run: dotnet pack --configuration Release Finnhub.Client
-    - name: Publish the package to GPR
-      run: dotnet nuget push Finnhub.Client/bin/Release/*.nupkg
     - uses: actions/setup-dotnet@v1
       env:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_TOKEN}} # Note, create a secret with this name in Settings
