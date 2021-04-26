@@ -23,3 +23,15 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Create the package
+      run: dotnet pack --configuration Release <my project>
+    - name: Publish the package to GPR
+      run: dotnet nuget push Finnhub.Client/bin/Release/*.nupkg
+    # Authticates packages to push to Azure Artifacts
+    - uses: actions/setup-dotnet@v1
+      with:
+        source-url: https://pkgs.dev.azure.com/<your-organization>/_packaging/<your-feed-name>/nuget/v3/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_TOKEN}} # Note, create a secret with this name in Settings
+    - name: Publish the package to NuGet
+      run: dotnet nuget push Finnhub.Client/bin/Release/*.nupkg
