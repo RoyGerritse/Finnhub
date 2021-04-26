@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Finnhub.Client
@@ -17,8 +16,23 @@ namespace Finnhub.Client
         public FinnhubClient(string token)
         {
             _token = token;
-        }        
-        
+        }
+
+        public async Task<List<Stock>> StockSymbol(string exchange, string? mic = null)
+        {
+            var url = $"{BaseUrl}/stock/symbol";
+            var queryParameters = new Dictionary<string, object>
+            {
+                {"exchange", exchange},
+            };
+            if (mic != null)
+            {
+                queryParameters.Add("mic", mic);
+            }
+
+            return await CallUrl<List<Stock>>(url, queryParameters);
+        }
+
         public async Task<List<string>> ForexExchanges()
         {
             var url = $"{BaseUrl}/forex/exchange";
@@ -34,7 +48,7 @@ namespace Finnhub.Client
             };
             return await CallUrl<List<ExchangeSymbol>>(url, queryParameters);
         }
-        
+
         public async Task<List<string>> CryptoExchanges()
         {
             var url = $"{BaseUrl}/crypto/exchange";
@@ -63,12 +77,6 @@ namespace Finnhub.Client
             };
             return await CallUrl<CryptoCandles>(url, queryParameters);
         }
-
-        // public static string ToJson<T>(T result)
-        // {
-        //     var options = new JsonSerializerOptions {WriteIndented = true};
-        //     return JsonSerializer.Serialize(result, options);
-        // }
 
         private async Task<T> CallUrl<T>(string url, Dictionary<string, object>? queryParameters = null) where T : new()
         {
