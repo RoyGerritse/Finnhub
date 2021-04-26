@@ -1,21 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Title>Finnhub Client</Title>
-    <Authors>Roy Gerritse</Authors>
-    <PackageId>Finnhub.Client</PackageId>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
-    <RepositoryUrl>https://github.com/RoyGerritse/Finnhubtype</RepositoryUrl>
-    <Description>.NET library to connect to finnhub.io.</Description>
-    <PackageLicenseUrl>https://github.com/RoyGerritse/Finnhub/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/RoyGerritse/Finnhub</PackageProjectUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>Finnhub</PackageTags>
-    <PackageVersion>1.0.1</PackageVersion>
-  </PropertyGroup>
-
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Finnhub Client</Title>
+        <Authors>Roy Gerritse</Authors>
+        <PackageId>Finnhub.Client</PackageId>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
+        <FileVersion>1.0.1</FileVersion>
+        <RepositoryUrl>https://github.com/RoyGerritse/Finnhubtype</RepositoryUrl>
+        <Description>.NET library to connect to finnhub.io.</Description>
+        <PackageProjectUrl>https://github.com/RoyGerritse/Finnhub</PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Finnhub</PackageTags>
+        <PackageVersion>1.0.1</PackageVersion>
+    </PropertyGroup>
 </Project>
