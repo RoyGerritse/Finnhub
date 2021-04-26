@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Create the package
-      run: dotnet pack --configuration Release <my project>
+      run: dotnet pack --configuration Release Finnhub.Client
     - name: Publish the package to GPR
       run: dotnet nuget push Finnhub.Client/bin/Release/*.nupkg
     # Authticates packages to push to Azure Artifacts
