@@ -7,12 +7,12 @@ namespace Finnhub.Console
     {
         private static EnvironmentSettings EnvironmentSettings { get; set; }
 
-        public static void Main(string[] args)
+        public static void Main()
         {
             EnvironmentSettings = new EnvironmentSettings();
 
             var client = new FinnhubClient(EnvironmentSettings.Token);
-            client.CryptoCandle("BINANCE:BTCUSDT", "D");
+            client.CryptoCandle("BINANCE:BTCUSDT", "D", 1572651390, 1575243390);
         }
     }
 
