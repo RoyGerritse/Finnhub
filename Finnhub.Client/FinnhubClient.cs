@@ -1,5 +1,8 @@
 ﻿using System;
-using System.Text.Json.Serialization;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 
 namespace Finnhub.Client
 {
@@ -13,38 +16,35 @@ namespace Finnhub.Client
             _token = token;
         }
 
-        public void CryptoCandle(string symbol, string resolution, long? from = null, long? to = null)
+        public async Task<CryptoCandles> CryptoCandle(string symbol, string resolution, long from,
+            long to)
         {
-            if (from == null && to == null)
-            {
-                var currentEpoch = DateTimeOffset.Now.ToUnixTimeSeconds();
-                to = currentEpoch;
-            }
-
-            var url =
-                $"{BaseUrl}/crypto/candle?symbol={symbol}&resolution={resolution}&from={from}&to={to}&token={_token}";
+            var cryptoCandles = $"{BaseUrl}/crypto/candle";
+            var url = $"{cryptoCandles}?symbol={symbol}&resolution={resolution}&from={from}&to={to}&token={_token}";
+            return await CallUrl<CryptoCandles>(url);
         }
-    }
 
-    public class CryptoCandles
-    {
-        [JsonPropertyName("c")]
-        public double[] Close { get; set; }
-        
-        [JsonPropertyName("h")]
-        public double[] High { get; set; }
-        
-        [JsonPropertyName("l")]
-        public double[] Low { get; set; }
-        
-        [JsonPropertyName("s")]
-        public string Status { get; set; }
-        
-        [JsonPropertyName("time")]
-        public long[] Time { get; set; }
-        
-        [JsonPropertyName("v")]
-        public long[] Volume { get; set; }
-        
+        private static async Task<T> CallUrl<T>(string url) where T : new()
+        {
+            using var client = new HttpClient {BaseAddress = new Uri(url)};
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            try
+            {
+                var response = await client.GetAsync(url);
+                var club = await response.Content.ReadFromJsonAsync<T>();
+                return club;
+            }
+            catch (HttpRequestException e)
+            {
+                if (e.Source != null)
+                {
+                    Console.WriteLine("HttpRequestException source: {0}", e.Source);
+                }
+
+                return new T();
+            }
+        }
     }
 }
