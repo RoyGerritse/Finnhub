@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Finnhub.Client;
 
@@ -13,18 +12,40 @@ namespace Finnhub.Console
         {
             EnvironmentSettings = new EnvironmentSettings();
             var client = new FinnhubClient(EnvironmentSettings.Token);
-            var exchanges = await client.CryptoExchanges();
-            System.Console.WriteLine("CRYPTO EXCHANGES:");
+            // var exchanges = await client.CryptoExchanges();
+            // System.Console.WriteLine("CRYPTO EXCHANGES:");
+            // System.Console.WriteLine("============");
+            // foreach (var exchange in exchanges)
+            // {
+            //     System.Console.WriteLine($"=> {exchange}");
+            //     var exchangeSymbols = await client.CryptoSymbol(exchange);
+            //     foreach (var exchangeSymbol in exchangeSymbols)
+            //     {
+            //         System.Console.WriteLine(
+            //             $"==> {exchangeSymbol.Symbol}, {exchangeSymbol.DisplaySymbol}, {exchangeSymbol.Description}");
+            //     }
+            // }
+            //
+            //
+            // var forexExchanges = await client.ForexExchanges();
+            // System.Console.WriteLine("FOREX EXCHANGES:");
+            // System.Console.WriteLine("============");
+            // foreach (var exchange in forexExchanges)
+            // {
+            //     System.Console.WriteLine($"=> {exchange}");
+            //     var exchangeSymbols = await client.ForexSymbol(exchange);
+            //     foreach (var exchangeSymbol in exchangeSymbols)
+            //     {
+            //         System.Console.WriteLine($"==> {exchangeSymbol.Symbol}, {exchangeSymbol.DisplaySymbol}, {exchangeSymbol.Description}");
+            //     }
+            // }
+            //             
+            var stockSymbols = await client.StockSymbol("AS");
+            System.Console.WriteLine("STOCKS US:");
             System.Console.WriteLine("============");
-            foreach (var exchange in exchanges)
+            foreach (var exchange in stockSymbols)
             {
-                System.Console.WriteLine($"=> {exchange}");
-                var exchangeSymbols = await client.CryptoSymbol(exchange);
-                foreach (var exchangeSymbol in exchangeSymbols)
-                {
-                    System.Console.WriteLine(
-                        $"==> {exchangeSymbol.Symbol}, {exchangeSymbol.DisplaySymbol}, {exchangeSymbol.Description}");
-                }
+                System.Console.WriteLine($"=>  {exchange.Figi}, {exchange.Currency}, {exchange.Symbol}, {exchange.Description}");
             }
         }
     }

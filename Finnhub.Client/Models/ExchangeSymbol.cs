@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Finnhub.Client
 {
-    public class CryptoSymbol
+    public class ExchangeSymbol
     {
         [JsonPropertyName("description")]        
         public string Description { get; set; } = null!;
